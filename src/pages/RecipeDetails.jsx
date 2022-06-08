@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import details from "../components/details"
 
 const RecipeDetails = () => {
   const [recipeDetails, setRecipeDetails] = useState([])
