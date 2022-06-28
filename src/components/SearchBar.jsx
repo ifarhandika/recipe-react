@@ -16,7 +16,7 @@ const SearchBar = () => {
 
   return (
     <>
-      <div className="w-80">
+      <div className="w-80 ml-5">
         <form onSubmit={submitSearchHandler}>
           <div className=" flex justify-between items-center shadow appearance-none border rounded w-full py-2 px-4 text-gray-700 leading-tight ">
             <FaSearch></FaSearch>

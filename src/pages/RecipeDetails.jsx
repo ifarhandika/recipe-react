@@ -1,7 +1,12 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useContext } from "react"
 import { useParams } from "react-router-dom"
+import { Toaster } from "react-hot-toast"
+
+import FavoriteContext from "../context/FavoriteContext"
 
 const RecipeDetails = () => {
+  const { addToFavorites } = useContext(FavoriteContext)
+
   const [recipeDetails, setRecipeDetails] = useState([])
   const [activeTab, setActiveTab] = useState("instructions")
   let params = useParams()
@@ -25,10 +30,9 @@ const RecipeDetails = () => {
     setActiveTab("ingredients")
   }
 
-  console.log(recipeDetails)
-
   return (
     <>
+      <Toaster />
       <div className="grid grid-cols-1 gap-10 sm:grid-cols-1">
         <div className="flex justify-center items-center">
           <h2 className="fonts text-4xl mb-3">{recipeDetails.title}</h2>
@@ -39,7 +43,7 @@ const RecipeDetails = () => {
         </div>
       </div>
       <div className="p-0 sm:p-10">
-        <div className="w-60 flex justify-between items-center my-10">
+        <div className="w-80 flex justify-between items-center my-10">
           <button
             className={
               activeTab === "instructions"
@@ -57,6 +61,9 @@ const RecipeDetails = () => {
             }
             onClick={ingredientsTabHandler}>
             Ingredients
+          </button>
+          <button onClick={() => addToFavorites(recipeDetails)}>
+            Add to Favorites
           </button>
         </div>
 

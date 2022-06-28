@@ -17,9 +17,9 @@ const Searched = () => {
     getSearchRecipes(params.search)
   }, [params.search])
 
-  console.log(searchedRecipes)
   return (
     <>
+      <h1 className="fonts text-3xl mb-5">Results</h1>
       <div className="grid justify-items-center content-between grid-cols-5 gap-7 mb-8 sm:grid-cols-5">
         {searchedRecipes.map((recipe) => {
           return (
